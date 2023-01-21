@@ -1,18 +1,18 @@
 const express = require('express')
 const app = express()
+
+const routes = require('./routes')
 const config = require('./configurations/configPorts.js')
 
 const setupViewEngine = require('./configurations/viewEngineHandleBars')
 setupViewEngine(app)
 
-//----------drug zapis na gornoto zapisvane za setupViewEngine--------------------
-// require('./configurations/viewEngineHandleBars')(app) /poneje ot tozi file samo tova e exportirano, moje direktno da go izpylnim
+//----------another way of importing/calling setupViewEngine--------------------
+// require('./configurations/viewEngineHandleBars')(app) /it gets the function directly and runs it
 //--------------------------------------------------------------------------------
 
-app.get('/', (req, res) => {
-    res.render('home')
-})
 
 app.use(express.static('src/public'))
+app.use(routes)
 
 app.listen(config.PORT, () => console.log(`Server is running on Port ${config.PORT} ...`))
