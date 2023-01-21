@@ -1,12 +1,25 @@
 {
   "cubes": [
     {
-      "name": {
-        "name": "aaa",
-        "description": "ssssss",
-        "imageUrl": "aaaaaaaaaaaaaaa",
-        "difficultyLevel": "1"
-      }
+      "name": "Test1",
+      "description": "Test des 1",
+      "imageUrl": "https://res.cloudinary.com/dk-find-out/image/upload/q_70,c_pad,w_1200,h_630,f_auto/cube_icon_kjijxo.jpg",
+      "difficultyLevel": "5",
+      "id": 1
+    },
+    {
+      "name": "Test 2",
+      "description": "test 2 des",
+      "imageUrl": "https://m.media-amazon.com/images/I/616GkZKULoS._AC_SX679_.jpg",
+      "difficultyLevel": "1",
+      "id": 2
+    },
+    {
+      "name": "test3",
+      "description": "des3",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Rubik%27s_cube.svg/983px-Rubik%27s_cube.svg.png",
+      "difficultyLevel": "4",
+      "id": 3
     }
   ]
 }

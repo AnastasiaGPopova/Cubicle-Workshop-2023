@@ -5,7 +5,8 @@ exports.getCubCreation = (req,res) => {
 }
 
 exports.postCreateCube = (req, res) => {
-    let cube = new Cube(req.body)//encoded body-to, which we receive, will create a new cube
+    const { name, description, imageUrl , difficultyLevel } = req.body
+    let cube = new Cube(name, description, imageUrl , difficultyLevel )//encoded body-to, which we receive, will create a new cube
     //save cube
     Cube.save(cube)
     //redirect
