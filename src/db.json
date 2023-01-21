@@ -27,6 +27,13 @@
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Rubik%27s_cube.svg/983px-Rubik%27s_cube.svg.png",
       "difficultyLevel": "1",
       "id": 4
+    },
+    {
+      "name": "test 5",
+      "description": "Test 5",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0475/8513/2708/products/RPS117307.jpg?v=1664487877&width=1946",
+      "difficultyLevel": "1",
+      "id": 5
     }
   ]
 }
