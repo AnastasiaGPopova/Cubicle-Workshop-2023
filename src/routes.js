@@ -11,7 +11,7 @@ const homeController = require('./controllers/homeController')
 //-------------------------------------------
 
 router.get('/', homeController.getHomePage)
-router.get('/', homeController.getAboutPage)
+router.get('/about', homeController.getAboutPage)
 
 
 //----------------How to access the cube create page action----------------------
@@ -23,5 +23,6 @@ router.get('/', homeController.getAboutPage)
 //---------------------------------------
 
 router.get('/create', cubeController.getCubCreation)
+router.post('/create', cubeController.postCreateCube)
 
 module.exports = router

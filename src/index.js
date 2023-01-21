@@ -13,6 +13,10 @@ setupViewEngine(app)
 
 
 app.use(express.static('src/public'))
+
+//-----Adding middleware-------
+app.use(express.urlencoded({extended: false})) //it returns a middleware which parse the url encoded body, this will be used for every request
+
 app.use(routes)
 
 app.listen(config.PORT, () => console.log(`Server is running on Port ${config.PORT} ...`))
