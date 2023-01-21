@@ -3,15 +3,16 @@ const express = require('express')
 const Router = express.Router
 const router = Router()
 // ----------------------------------
+
+
+//----- importing the controllers----------
 const cubeController = require('./controllers/cubeController')
+const homeController = require('./controllers/homeController')
+//-------------------------------------------
 
-router.get('/', (req, res) => {
-    res.render('index')
-})
+router.get('/', homeController.getHomePage)
+router.get('/', homeController.getAboutPage)
 
-router.get('/about', (req, res) => {
-    res.render('about')
-})
 
 //----------------How to access the cube create page action----------------------
 // app.get('/create', (req, res) => {
