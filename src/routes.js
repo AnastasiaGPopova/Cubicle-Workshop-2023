@@ -22,8 +22,10 @@ router.get('/about', homeController.getAboutPage)
 // app.get('/create', cubeController.getCubCreation)
 //---------------------------------------
 
+router.get('/404', homeController.getErrorPage404)
 router.get('/create', cubeController.getCubCreation)
 router.post('/create', cubeController.postCreateCube)
 router.get('/details/:cubeId', cubeController.getDetails)
+
 
 module.exports = router
