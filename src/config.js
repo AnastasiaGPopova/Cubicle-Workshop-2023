@@ -8,4 +8,4 @@ const config = {
     }
 }
 
-module.exports = config[process.env || 'development']
+module.exports = config[process.env.node_ev || 'development']
