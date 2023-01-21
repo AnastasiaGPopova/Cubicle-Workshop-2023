@@ -23,7 +23,7 @@ exports.getHomePage = (req,res) => {
     //This way it will works only with name, or only with from, or with name + from etc
 
 
-    res.render('index', {cubes, search})
+    res.render('index', {cubes, search, from, to})
 }
 
 exports.getAboutPage = (req,res) => {
