@@ -20,6 +20,13 @@
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Rubik%27s_cube.svg/983px-Rubik%27s_cube.svg.png",
       "difficultyLevel": "4",
       "id": 3
+    },
+    {
+      "name": "NewCube",
+      "description": "qqqqq",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Rubik%27s_cube.svg/983px-Rubik%27s_cube.svg.png",
+      "difficultyLevel": "1",
+      "id": 4
     }
   ]
 }
