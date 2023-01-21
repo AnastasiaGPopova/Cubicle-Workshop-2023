@@ -5,11 +5,11 @@ const router = Router()
 // ----------------------------------
 const cubeController = require('./controllers/cubeController')
 
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
     res.render('index')
 })
 
-app.get('/about', (req, res) => {
+router.get('/about', (req, res) => {
     res.render('about')
 })
 
@@ -21,6 +21,6 @@ app.get('/about', (req, res) => {
 // app.get('/create', cubeController.getCubCreation)
 //---------------------------------------
 
-app.get('/create', cubeController.getCubCreation)
+router.get('/create', cubeController.getCubCreation)
 
 module.exports = router
