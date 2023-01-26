@@ -11,6 +11,6 @@ router.post('/create', async (req,res) => {
    const savedAccessory = await Accessory.create({name, description, imageUrl} )
 
    res.redirect('/')
-
+traalalal
 })
 module.exports = router
