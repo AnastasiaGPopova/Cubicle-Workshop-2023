@@ -23,3 +23,7 @@ exports.getDetails = async (req, res) => {
     res.render('details', {currentCube})
 
 }
+
+exports.getAttachAccessory = (req,res) => {
+    res.render('cube/attach')
+}

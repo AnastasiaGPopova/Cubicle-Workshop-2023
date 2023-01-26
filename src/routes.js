@@ -27,8 +27,11 @@ router.get('/404', homeController.getErrorPage404)
 router.get('/create', cubeController.getCubCreation)
 router.post('/create', cubeController.postCreateCube)
 router.get('/details/:cubeId', cubeController.getDetails)
+router.get('cubes/:cubeId/attach', cubeController.getAttachAccessory)
 
 router.use('/accessory', asseccoryController)
+
+
 
 
 module.exports = router
