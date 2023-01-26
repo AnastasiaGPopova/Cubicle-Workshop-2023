@@ -23,6 +23,6 @@ app.use(express.urlencoded({extended: false})) //Always! it returns a middleware
 
 app.use(routes)
 
-dataBaseInit()
+dataBaseInit() //er are running the data base. If connection to DB is not possible, it should show an error.
             .then(() => app.listen(config.PORT, () => console.log(`Server is running on Port ${config.PORT} ...`)))
             .catch((err) => console.error(err))
