@@ -1,10 +1,10 @@
-const db = require('../db.json')
+const Cube = require('../models/Cube.js')
 
-exports.getHomePage = (req,res) => {
+exports.getHomePage = async (req,res) => {
     //console.log(req.query) //express is doing this for us
     const {search, from, to } = req.query
 
-    let cubes = db.cubes
+    let cubes = await Cube.find().lean()
 
     if(search) {
         cubes = cubes.filter(cube => cube.name.toLowerCase().includes(search.toLowerCase())) //this will filter all cubes, that include the search key word

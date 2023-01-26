@@ -8,6 +8,7 @@ const router = Router()
 //----- importing the controllers----------
 const cubeController = require('./controllers/cubeController')
 const homeController = require('./controllers/homeController')
+const asseccoryController = require('./controllers/accessoryController')
 //-------------------------------------------
 
 router.get('/', homeController.getHomePage)
@@ -26,6 +27,8 @@ router.get('/404', homeController.getErrorPage404)
 router.get('/create', cubeController.getCubCreation)
 router.post('/create', cubeController.postCreateCube)
 router.get('/details/:cubeId', cubeController.getDetails)
+
+router.use('/accessory', asseccoryController)
 
 
 module.exports = router

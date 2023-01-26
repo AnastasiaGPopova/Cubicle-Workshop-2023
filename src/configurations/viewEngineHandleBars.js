@@ -1,4 +1,4 @@
-//dobavqne na handlebars
+//adding configuring of handlebars
 const handlebars = require('express-handlebars')
 
 function setupViewEngine(app) {
@@ -7,7 +7,7 @@ function setupViewEngine(app) {
     }))
     
     app.set('view engine', 'hbs')
-    app.set('views', './src/views') //kazvame kyde da tyrsi papkata views
+    app.set('views', './src/views') //we say where the views folder will be
 
 }
 
