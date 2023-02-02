@@ -1,4 +1,5 @@
 const express = require('express')
+const cookieParser = require('cookie-parser')
 
 const app = express()
 
@@ -17,7 +18,7 @@ setupViewEngine(app)
 
 
 app.use(express.static('src/public'))
-
+app.use(cookieParser())
 //-----Adding middleware-------
 app.use(express.urlencoded({extended: false})) //Always! it returns a middleware which parse the url encoded body, this will be used for every request
 
