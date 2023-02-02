@@ -7,7 +7,6 @@ exports.getCubCreation = (req,res) => {
 
 exports.postCreateCube = async (req, res) => {
 
-
     const { name, description, imageUrl , difficultyLevel } = req.body
     let cube = new Cube({name, description, imageUrl , difficultyLevel} )//encoded body-to, which we receive, will create a new cube
     //save cube
@@ -44,5 +43,17 @@ exports.postAttachedAccessory = async (req, res) => {
 
    await cube.save()
     res.redirect(`/cubes/${cube._id}/details`)
+
+}
+
+exports.getEditCubePage = (req, res) => {
+
+    req.res('cube/edit')
+
+}
+
+exports.getDeletedCubePage = (req, res) => {
+
+    req.res('cube/delete')
 
 }
