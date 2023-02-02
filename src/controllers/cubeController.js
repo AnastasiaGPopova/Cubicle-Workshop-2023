@@ -6,6 +6,8 @@ exports.getCubCreation = (req,res) => {
 }
 
 exports.postCreateCube = async (req, res) => {
+
+
     const { name, description, imageUrl , difficultyLevel } = req.body
     let cube = new Cube({name, description, imageUrl , difficultyLevel} )//encoded body-to, which we receive, will create a new cube
     //save cube

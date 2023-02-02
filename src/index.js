@@ -8,6 +8,7 @@ const config = require('./configurations/configPorts.js')
 
 const setupViewEngine = require('./configurations/viewEngineHandleBars')
 const dataBaseInit = require('./configurations/dataBaseInit.js')
+const authMiddleware = require('./middlewares/authMiddleware.js')
 
 setupViewEngine(app)
 
@@ -21,6 +22,9 @@ app.use(express.static('src/public'))
 app.use(cookieParser())
 //-----Adding middleware-------
 app.use(express.urlencoded({extended: false})) //Always! it returns a middleware which parse the url encoded body, this will be used for every request
+
+app.use(authMiddleware.authentication)//before the routes and after cookies parser and urldecoded, we need to add the authMiddleware
+//all requests will go trough the auth middle ware
 
 app.use(routes)
 

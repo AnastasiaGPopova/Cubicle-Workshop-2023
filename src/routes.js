@@ -10,6 +10,7 @@ const cubeController = require('./controllers/cubeController')
 const homeController = require('./controllers/homeController')
 const asseccoryController = require('./controllers/accessoryController')
 const authController = require('./controllers/authController.js')
+const {isAuthenticated} = require('./middlewares/authMiddleware.js')
 
 //-------------------------------------------
 
@@ -26,8 +27,8 @@ router.get('/about', homeController.getAboutPage)
 //---------------------------------------
 
 router.get('/404', homeController.getErrorPage404)
-router.get('/create', cubeController.getCubCreation)
-router.post('/create', cubeController.postCreateCube)
+router.get('/create', isAuthenticated, cubeController.getCubCreation)
+router.post('/create', isAuthenticated, cubeController.postCreateCube)
 router.get('/cubes/:cubeId/details', cubeController.getDetails)
 router.get('/cubes/:cubeId/attach', cubeController.getAttachAccessory)
 router.post('/cubes/:cubeId/attach', cubeController.postAttachedAccessory)
