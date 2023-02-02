@@ -9,6 +9,8 @@ const router = Router()
 const cubeController = require('./controllers/cubeController')
 const homeController = require('./controllers/homeController')
 const asseccoryController = require('./controllers/accessoryController')
+const authController = require('./controllers/authController.js')
+
 //-------------------------------------------
 
 router.get('/', homeController.getHomePage)
@@ -29,6 +31,10 @@ router.post('/create', cubeController.postCreateCube)
 router.get('/cubes/:cubeId/details', cubeController.getDetails)
 router.get('/cubes/:cubeId/attach', cubeController.getAttachAccessory)
 router.post('/cubes/:cubeId/attach', cubeController.postAttachedAccessory)
+router.get('/login', authController.loginPage)
+router.get('/register', authController.registerPage)
+router.post('/register', authController.postRegisterUser)
+
 
 router.use('/accessory', asseccoryController)
 
