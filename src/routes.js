@@ -34,6 +34,7 @@ router.post('/cubes/:cubeId/attach', cubeController.postAttachedAccessory)
 router.get('/login', authController.loginPage)
 router.get('/register', authController.registerPage)
 router.post('/register', authController.postRegisterUser)
+router.post('/login', authController.postLoginUser)
 
 
 router.use('/accessory', asseccoryController)
