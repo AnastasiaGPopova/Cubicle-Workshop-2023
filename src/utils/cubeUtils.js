@@ -35,3 +35,13 @@ exports.generateDiffcultyLevel = function (currentLevel){ //prepare view data
     const result = difficultyLevels.map(x => x.key == currentLevel ? {...x, selected: true} : x)
     return result
 }
+
+exports.isCubeOwner = (user, cube) => {
+    let isOwner = false
+    if(user){
+        if(user._id == cube.owner._id){
+            isOwner = true
+        }
+    }
+   return isOwner
+}

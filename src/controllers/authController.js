@@ -10,9 +10,6 @@ exports.registerPage = (req,res) => {
 
 exports.postRegisterUser = async (req, res) => {
     const {username, password, repeatPassword} = req.body
-    console.log(username)
-    console.log(password)
-
     if(password !== repeatPassword) {
         return res.redirect('/404')
     }
@@ -23,8 +20,7 @@ exports.postRegisterUser = async (req, res) => {
     }
 
     const user = await authService.register(username, password)
-    console.log(user)
-    res.redirect('/')
+    res.redirect('/login')
 }
 
 exports.postLoginUser = async (req, res) => {

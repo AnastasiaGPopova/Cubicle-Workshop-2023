@@ -12,8 +12,9 @@ exports.getCubCreation = (req,res) => {
 exports.postCreateCube = async (req, res) => {
 
     const { name, description, imageUrl , difficultyLevel } = req.body
-    let cube = new Cube({name, description, imageUrl , difficultyLevel} )//encoded body-to, which we receive, will create a new cube
+    let cube = new Cube({name, description, imageUrl , difficultyLevel, owner: req.user._id} )//encoded body-to, which we receive, will create a new cube
     //save cube
+
 
     await cube.save()
     //redirect
@@ -22,13 +23,26 @@ exports.postCreateCube = async (req, res) => {
 
 exports.getDetails = async (req, res) => {
 
-    let currentCube = await Cube.findById(req.params.cubeId).populate('accessories').lean() //it makes a request to the DB and gives us back all accessories with all details and infos/not only the ID/
-
+    let currentCube = await Cube.findById(req.params.cubeId)
+                                .populate('accessories') //it makes a request to the DB and gives us back all accessories with all details and infos/not only the ID/
+                                .populate('owner')
+                                .lean()
 
     if(!currentCube){
         return res.redirect('/404')
     }
-    res.render('cube/details', {currentCube})
+
+    let isOwner = false
+    let isLogged = false
+
+    if(req.user){
+      isLogged = true
+      if(currentCube.owner._id == req.user._id){
+        isOwner = true
+      }
+    } 
+
+    res.render('cube/details', {currentCube, isOwner, isLogged})
 
 }
 
@@ -53,6 +67,11 @@ exports.postAttachedAccessory = async (req, res) => {
 exports.getEditCubePage = async (req, res) => {
     const cube = await cubeService.getOneCube(req.params.cubeId).lean()
     const diffcultyLevels = cubeUtils.generateDiffcultyLevel(cube.difficultyLevel)
+
+    if(!cubeUtils.isCubeOwner(req.user, cube)){
+        res.redirect('/404')
+    }
+
 
     res.render('cube/edit', {cube, diffcultyLevels})
 
