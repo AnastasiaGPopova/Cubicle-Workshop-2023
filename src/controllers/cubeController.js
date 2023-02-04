@@ -60,7 +60,9 @@ exports.getEditCubePage = async (req, res) => {
 
 exports.getDeletedCubePage = async (req, res) => {
     const cube = await cubeService.getOneCube(req.params.cubeId).lean()
-    res.render('cube/delete', {cube})
+    const diffcultyLevels = cubeUtils.generateDiffcultyLevel(cube.difficultyLevel)
+
+    res.render('cube/delete', {cube, diffcultyLevels})
 
 }
 
@@ -71,4 +73,9 @@ exports.postEditedCube = async (req,res) => {
 
     res.redirect(`/cubes/${req.params.cubeId}/details`)
 
+}
+
+exports.postDeleteCube = async (req, res) => {
+   await cubeService.deleteCube(req.params.cubeId)
+   res.redirect('/')
 }

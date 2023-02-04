@@ -34,7 +34,11 @@ router.get('/cubes/:cubeId/details', cubeController.getDetails)
 router.get('/cubes/:cubeId/edit', cubeController.getEditCubePage)
 router.post('/cubes/:cubeId/edit', cubeController.postEditedCube)
 
+//Delete Page
 router.get('/cubes/:cubeId/delete', cubeController.getDeletedCubePage)
+router.post('/cubes/:cubeId/delete', cubeController.postDeleteCube)
+
+
 router.get('/cubes/:cubeId/attach', cubeController.getAttachAccessory)
 router.post('/cubes/:cubeId/attach', cubeController.postAttachedAccessory)
 router.get('/login', authController.loginPage)
