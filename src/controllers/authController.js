@@ -40,3 +40,8 @@ exports.postLoginUser = async (req, res) => {
         return res.redirect('/')
     }
 }
+
+exports.logout = (req, res) => {
+    res.clearCookie('auth')
+    res.redirect('/')
+}
