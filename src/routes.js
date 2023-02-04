@@ -30,7 +30,10 @@ router.get('/404', homeController.getErrorPage404)
 router.get('/create', isAuthenticated, cubeController.getCubCreation)
 router.post('/create', isAuthenticated, cubeController.postCreateCube)
 router.get('/cubes/:cubeId/details', cubeController.getDetails)
+//Edit page
 router.get('/cubes/:cubeId/edit', cubeController.getEditCubePage)
+router.post('/cubes/:cubeId/edit', cubeController.postEditedCube)
+
 router.get('/cubes/:cubeId/delete', cubeController.getDeletedCubePage)
 router.get('/cubes/:cubeId/attach', cubeController.getAttachAccessory)
 router.post('/cubes/:cubeId/attach', cubeController.postAttachedAccessory)

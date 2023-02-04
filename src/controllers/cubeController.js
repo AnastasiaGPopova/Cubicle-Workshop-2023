@@ -63,3 +63,12 @@ exports.getDeletedCubePage = async (req, res) => {
     res.render('cube/delete', {cube})
 
 }
+
+exports.postEditedCube = async (req,res) => {
+
+    const { name, description, imageUrl , difficultyLevel } = req.body
+    await cubeService.update(req.params.cubeId, { name, description, imageUrl , difficultyLevel })
+
+    res.redirect(`/cubes/${req.params.cubeId}/details`)
+
+}
